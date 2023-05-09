@@ -1,5 +1,3 @@
-# amylase-reaction-discovery
-
 # How and When Does an Enzyme React? Unraveling α-Amylase Catalytic Activity with Enhanced Sampling Techniques
 
 # Sudip Das, Umberto Raucci, Rui P. P. Neves, Maria J. Ramos, Michele Parrinello 
@@ -11,23 +9,24 @@ This archive contains all the input files needed to reproduce the results of the
 
 
 In the 'classical_unbiased_MD' folder the following files are available:
-- All the initial conformations.
-- A folder name 'template' containing all the GROMACS inputs for classical energy minimization, MD equilibration and production runs.
+- A compressed folder named 'init_config' containing all the initial conformations.
+- A folder named 'input' containing all the GROMACS inputs for classical energy minimization, MD equilibration and production runs.
 - A folder named 'unbiasedCVs' containing PLUMED input and coordinate alignment file. This are required to produce Figure 4b.
 
 
 In the 'QM-MM_MD' folder the following files are available:
+- amylase_ee.prmtop, and react_nvt-ee_dft_opes.inp are CP2K input files.
 - Discovery simulations separately with two different graph CVs:
-  * 8 atoms within the adjacency matrix (8atomsCV) and 34 atoms within the adjacency matrix (34atomsCV)
+  * 34 atoms within the adjacency matrix (34atomsCV) and 8 atoms within the adjacency matrix (8atomsCV)
 - Each of these two folders have subfolders containing inputs for running discovery simulations from each intial conforamtions.
-  * MD_nvt_prod_frameID_amber.xyz is the initial conformation (IC).
-  * amylase_ee.prmtop, forceeval_qmmm.cp2k-frameID.inc and react_nvt-ee_gpw_opes_new.inp are CP2K input files.
+  * A compressed folder 'init_config' conains all the initial conformations.
+  * A folder 'input' contains CP2K input files for each initial conformations and they define the QM region and the QM/MM interface.
   * plumed.dat is the PLUMED input, num_cv.pt file contains the spectral graph CV.
   * label.dat mentions all the atoms included within the adjacency matrix.
   * make_plumed_qm_mm.py is a python script to produce the plumed.dat file.
 
 
-The 'Wannier_centers' folder contains input files for the calculation of Wannier centers.
+The 'Wannier_centers' folder contains a CP2K input file for the calculation of Wannier centers.
 
 
 In the 'classical_biased_MD' folder the following files are available:
